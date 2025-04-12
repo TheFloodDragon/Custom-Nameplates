@@ -304,8 +304,7 @@ public class ResourcePackManagerImpl implements ResourcePackManager {
                 list.add(jo);
                 try {
                     FileUtils.copyFile(
-                            new File(plugin.getDataFolder(),
-                                    "contents" + File.separator + "bubbles" + File.separator + configuredChar.imageFile().getName()),
+                            configuredChar.imageFile(),
                             new File(texturesFolder,
                                     ConfigManager.bubblePath().replace("\\", File.separator) + configuredChar.imageFile().getName()));
                 } catch (IOException e) {
@@ -338,8 +337,7 @@ public class ResourcePackManagerImpl implements ResourcePackManager {
                 list.add(jo);
                 try {
                     FileUtils.copyFile(
-                            new File(plugin.getDataFolder(),
-                                    "contents" + File.separator + "backgrounds" + File.separator + configuredChar.imageFile().getName()),
+                            configuredChar.imageFile(),
                             new File(texturesFolder,
                                     ConfigManager.backgroundPath().replace("\\", File.separator) + configuredChar.imageFile().getName()));
                 } catch (IOException e) {
@@ -367,9 +365,7 @@ public class ResourcePackManagerImpl implements ResourcePackManager {
             try {
                 File targetFile = new File(texturesFolder,
                         ConfigManager.imagePath().replace("\\", File.separator) + character.imageFile().getName());
-                FileUtils.copyFile(
-                        new File(plugin.getDataFolder(),
-                                "contents" + File.separator + "images" + File.separator + character.imageFile().getName()), targetFile);
+                FileUtils.copyFile(character.imageFile(), targetFile);
                 if (image.removeShadow() || image.animation() != null) {
                     BufferedImage bufferedImage = ImageIO.read(targetFile);
                     if (image.removeShadow()) {
@@ -435,8 +431,7 @@ public class ResourcePackManagerImpl implements ResourcePackManager {
                 list.add(jo);
                 try {
                     FileUtils.copyFile(
-                            new File(plugin.getDataFolder(),
-                                    "contents" + File.separator + "nameplates" + File.separator + configuredChar.imageFile().getName()),
+                            configuredChar.imageFile(),
                             new File(texturesFolder,
                                     ConfigManager.nameplatePath().replace("\\", File.separator) + configuredChar.imageFile().getName()));
                 } catch (IOException e) {
