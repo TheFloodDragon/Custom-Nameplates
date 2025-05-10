@@ -19,7 +19,6 @@ package net.momirealms.customnameplates.bukkit;
 
 import it.unimi.dsi.fastutil.ints.IntList;
 import me.clip.placeholderapi.PlaceholderAPI;
-import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
 import net.momirealms.customnameplates.api.CNPlayer;
 import net.momirealms.customnameplates.api.ConfigManager;
 import net.momirealms.customnameplates.api.CustomNameplates;
@@ -432,7 +431,7 @@ public class BukkitPlatform implements Platform {
                         Optional<Object> optionalParameters = (Optional<Object>) Reflections.field$ClientboundSetPlayerTeamPacket$parameters.get(packet);
                         if (optionalParameters.isPresent()) {
                             Object parameters = optionalParameters.get();
-                            Reflections.field$ClientboundSetPlayerTeamPacket$Parameters$nametagVisibility.set(parameters, "never");
+                            Reflections.field$ClientboundSetPlayerTeamPacket$Parameters$nametagVisibility.set(parameters, VersionHelper.isVersionNewerThan1_21_5() ? Reflections.instance$Team$Visibility$NEVER : "never");
                         }
                     }
                     // remove
@@ -459,7 +458,7 @@ public class BukkitPlatform implements Platform {
                         Optional<Object> optionalParameters = (Optional<Object>) Reflections.field$ClientboundSetPlayerTeamPacket$parameters.get(packet);
                         if (optionalParameters.isPresent()) {
                             Object parameters = optionalParameters.get();
-                            Reflections.field$ClientboundSetPlayerTeamPacket$Parameters$nametagVisibility.set(parameters, "never");
+                            Reflections.field$ClientboundSetPlayerTeamPacket$Parameters$nametagVisibility.set(parameters, VersionHelper.isVersionNewerThan1_21_5() ? Reflections.instance$Team$Visibility$NEVER : "never");
                         }
                     }
                     // add members
